@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "upcoming-events-client-side-solution",
+    "id": "a47bc13a-c27a-4ca7-b139-ff4173b07bcd",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "upcoming-events description"
+      },
+      "longDescription": {
+        "default": "upcoming-events description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "upcoming-events Feature",
+        "description": "The feature that activates elements of the upcoming-events solution.",
+        "id": "76d451e8-f062-4e95-a9e4-e669281b5291",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/upcoming-events.sppkg"
+  }
+}

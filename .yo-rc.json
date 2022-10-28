@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.0",
+    "libraryName": "upcoming-events",
+    "libraryId": "a47bc13a-c27a-4ca7-b139-ff4173b07bcd",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "upcoming-events",
+    "solutionShortDescription": "upcoming-events description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
