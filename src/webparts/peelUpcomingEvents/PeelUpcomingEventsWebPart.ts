@@ -14,6 +14,7 @@ import { IPeelUpcomingEventsProps } from './components/IPeelUpcomingEventsProps'
 
 export interface IPeelUpcomingEventsWebPartProps {
   description: string;
+  
 }
 
 export default class PeelUpcomingEventsWebPart extends BaseClientSideWebPart<IPeelUpcomingEventsWebPartProps> {
@@ -29,7 +30,8 @@ export default class PeelUpcomingEventsWebPart extends BaseClientSideWebPart<IPe
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        context: this.context
       }
     );
 
