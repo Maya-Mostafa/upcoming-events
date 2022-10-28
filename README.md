@@ -35,17 +35,17 @@ Short summary on functionality and used technologies.
 
 ## Creating a SPFx wp, build, deploy
 
-  > yo @microsoft/sharepoint
-  > gulp serve
+  > yo @microsoft/sharepoint<br/>
+  > gulp serve<br/>
 
-  > gulp serve --nobrowser
-  > gulp package-solution
+  > gulp serve --nobrowser<br/>
+  > gulp package-solution<br/>
 
-  > gulp clean
-  > gulp build
+  > gulp clean<br/>
+  > gulp build<br/>
   
-  > gulp bundle --ship
-  > gulp package-solution --ship
+  > gulp bundle --ship<br/>
+  > gulp package-solution --ship<br/>
 
 
 ## Libraries 
