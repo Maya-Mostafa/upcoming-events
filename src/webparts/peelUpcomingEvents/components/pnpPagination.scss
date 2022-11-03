@@ -1,0 +1,12 @@
+.pagination-container .pagination-button,
+.pagination-container .ms-Button{
+    border: none;
+    padding: 0 5px;
+    height: 25px;
+    i{
+        font-weight: 600;
+        font-size: 12px;
+        color:"[theme:link, default:#03787c]";
+        color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+    }
+}
