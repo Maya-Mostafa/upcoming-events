@@ -8,15 +8,150 @@
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 0;
+  }
+
+  .eventItem{
+    list-style: none;
+    display: flex;
+    margin-bottom: 15px;
+    width: 360px;
+    a{
+      cursor: pointer;
+      color:"[theme:link, default:#03787c]";
+      color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+      &:hover {
+        text-decoration: underline;
+        color: "[theme:linkHovered, default: #014446]";
+        color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+      }
+    }
+    .eventDate{
+      box-sizing: border-box;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: rgb(0 0 0 / 13%) 0px 1.6px 3.6px 0px, rgb(0 0 0 / 11%) 0px 0.3px 0.9px 0px;
+      border: 1px solid rgb(237, 235, 233) !important;
+      height: 66px;
+      width: 66px;
+      min-width: 66px;
+      min-height: 66px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      border-radius: 2px;
+      overflow: hidden;
+      align-items: flex-start;
+      margin-right: 15px;
+      padding: 7px 7px 0 7px;
+      .eventMonth{
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: -5px;
+      }
+      .eventDay{
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+    .eventDetails{
+      display: flex;
+      flex-direction: column;
+      h5{
+        margin: 3px 0;
+      }
+      .eventTimes{
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+      }
+      .eventLocation{
+        color: #666;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+.eventDlg{
+  padding: 0 20px;
+  .modalBtn{
+    display: flex;
+  }
+  header{
+    background: url(../assets/aqua_blue_bg.jpg);
+    h1{
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      margin: 0;
+    }
+    .title{
+      color: #fff;
+      font-weight: 600;
+      font-size: 24px;
+    }
+  }
+  section{
+    display: flex;
+    margin: 25px 10px;
+  }
+  h2{
+    font-weight: 500;
+    font-size: 16px;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+  }
+  .evDescp{
+    flex-direction: column;
+    h2{
+      width: 100%;
+    }
+  }
+  
+  .eventDate{
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 49%), 0 0.3px 0.9px 0 rgb(0 0 0 / 74%);
+    border: 1px solid rgb(237, 235, 233) !important;
+    height: 66px;
+    width: 66px;
+    min-width: 66px;
+    min-height: 66px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    border-radius: 2px;
+    overflow: hidden;
+    align-items: flex-start;
+    margin-right: 15px;
+    padding: 7px 7px 0 7px;
+    .eventMonth{
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: -5px;
+    }
+    .eventDay{
+      font-weight: 600;
+      font-size: 24px;
+    }
+  }
 }
 
-.welcome {
-  text-align: center;
-}
-
-.welcomeImage {
-  width: 100%;
-  max-width: 420px;
+.wpTitle{
+  font-size: 20px;
+  margin: 0 0 11px 0;
+  padding: 0;
+  color: inherit;
 }
 
 .links {
