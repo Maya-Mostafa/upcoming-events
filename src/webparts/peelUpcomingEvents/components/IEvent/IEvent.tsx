@@ -1,13 +1,21 @@
 import * as React from 'react';
+import styles from '../PeelUpcomingEvents.module.scss';
 import { IEventProps } from './IEventProps';
+import { DateTime } from "luxon";
 
 export default function IEvent (props: IEventProps) {
     
     return(
-        <li>
-            <div><label>Title:</label><span>{props.event.Title}</span></div>
-            <div><label>Start Date:</label><span>{props.event.EventDate}</span></div>
-            <div><label>End Date:</label><span>{props.event.EndDate}</span></div>
+        <li className={styles.eventItem}>
+            <div className={styles.eventDate}>
+                <div className={styles.eventMonth}>{DateTime.fromISO(props.event.startDate).toFormat('LLL')}</div>
+                <div className={styles.eventDay}>{DateTime.fromISO(props.event.startDate).toFormat('L')}</div>
+            </div>
+            <div className={styles.eventDetails}>
+                <h5><a onClick={props.eventClickHandler}>{props.event.title}</a></h5>
+                <div className={styles.eventTimes}>{DateTime.fromISO(props.event.startDate).toFormat('ff')} - {DateTime.fromISO(props.event.endDate).toFormat('tt')}</div>
+                <div className={styles.eventLocation}>{props.event.location}</div>
+            </div>
         </li>
     )
 
