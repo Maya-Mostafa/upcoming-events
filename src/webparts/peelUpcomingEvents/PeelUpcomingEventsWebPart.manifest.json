@@ -22,7 +22,12 @@
     "description": { "default": "Peel Upcoming Events description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Peel Upcoming Events"
+      "wpTitle" : "Upcoming Events",
+      "siteUrl" : "",
+      "dateRange" : "All upcoming events",
+      "numEvents" : 50,
+      "showPaging" : true,
+      "pageSize" : 10
     }
   }]
 }
