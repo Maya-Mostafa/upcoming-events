@@ -23,7 +23,6 @@
     "officeFabricIconFontName": "Page",
     "properties": {
       "wpTitle" : "Upcoming Events",
-      "siteUrl" : "",
       "dateRange" : "All upcoming events",
       "numEvents" : 50,
       "showPaging" : true,
