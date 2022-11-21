@@ -21,6 +21,7 @@
     "office-ui-fabric-react": "7.185.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "rrule": "^2.7.1",
     "tslib": "2.3.1"
   },
   "devDependencies": {
