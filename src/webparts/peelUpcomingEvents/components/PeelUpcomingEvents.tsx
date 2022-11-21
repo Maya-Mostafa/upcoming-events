@@ -23,6 +23,7 @@ export default function PeelUpcomingEvents(props: IPeelUpcomingEventsProps){
   React.useEffect(() => {
 
     getEvents(props.context, props.siteUrl, props.eventsList, props.dateRange, props.numEvents).then(results => {
+      console.log("results", results);
       setEvents(results);
       setPaginatedEvents(results.slice(0, props.pageSize));
     });
@@ -93,7 +94,7 @@ export default function PeelUpcomingEvents(props: IPeelUpcomingEventsProps){
                 <IEvent
                   key={index}
                   event={event}
-                  eventClickHandler={openDialog}
+                  eventClickHandler={() => openDialog(event)}
                 />
               );
             })}
