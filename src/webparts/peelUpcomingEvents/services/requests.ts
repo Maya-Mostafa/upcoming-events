@@ -5,6 +5,7 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import "@pnp/sp/items/get-all";
+import {parseRecurrentEvent, recurrentText} from './recurrentEventOps';
 
 export const getGraphMemberOf = async (context: WebPartContext) : Promise <string> =>{
     const graphUrl = '/me/transitiveMemberOf/microsoft.graph.group';
@@ -104,7 +105,7 @@ export const getEvents = async (context: WebPartContext, siteUrl: string, listNa
     const items : any  = await sp.web.lists.getByTitle(listName).items
         .orderBy('EventDate', true)
         .top(numEvents)
-        .select('Id, Title, Category, Created, Description, EventDate, EndDate, Location, Modified, OData__ModernAudienceTargetUserFieldId')
+        .select('Id, Title, Category, Created, Description, EventDate, EndDate, Location, Modified, fRecurrence, fAllDayEvent, RecurrenceData, OData__ModernAudienceTargetUserFieldId')
         .filter(`(EventDate ge '${today}' or (EventDate le '${today}' and EndDate ge '${today}')) ${getRangeFilter(dateRange)}`)();
 
         return items.map(item => {
@@ -119,7 +120,13 @@ export const getEvents = async (context: WebPartContext, siteUrl: string, listNa
             location: item.Location,
             modified: item.Modified,
             link: `${siteUrl}/Lists/${listName}/DispForm.aspx?ID=${item.Id}`,
-            targetAudienceId: item.OData__ModernAudienceTargetUserFieldId
+            targetAudienceId: item.OData__ModernAudienceTargetUserFieldId,
+            isRecurrent: item.fRecurrence,
+            recurrenceData: item.RecurrenceData,
+            recurrenceObj: item.RecurrenceData ? parseRecurrentEvent(item.RecurrenceData, item.EventDate, item.EndDate): null,
+            recurrenceText: item.RecurrenceData ? recurrentText(parseRecurrentEvent(item.RecurrenceData, item.EventDate, item.EndDate)): null,
+            //recurrenceText: null,
+            fullDay: item.fAllDayEvent,
         }
     });
 };

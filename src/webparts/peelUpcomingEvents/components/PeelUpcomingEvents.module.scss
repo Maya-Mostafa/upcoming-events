@@ -60,6 +60,9 @@
         font-size: 24px;
       }
     }
+    .recurrentDate{
+      font-size: 14px;
+    }
     .eventDetails{
       display: flex;
       flex-direction: column;
@@ -144,6 +147,12 @@
       font-weight: 600;
       font-size: 24px;
     }
+  }
+  .recurrentDate{
+    font-size: 14px;
+  }
+  .eventTiming{
+    text-transform: capitalize;
   }
 }
 

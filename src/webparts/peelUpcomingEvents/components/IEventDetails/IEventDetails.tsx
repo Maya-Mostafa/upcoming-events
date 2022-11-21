@@ -10,11 +10,19 @@ export default function IEventDetails (props: IEventDetailsProps) {
         <div className={styles.eventDlg}>
             
             <header>
-                {/* <img src={require('../../assets/aqua_blue_bg.jpg')} /> */}
                 <h1>
                     <span className={styles.eventDate}>
-                        <div className={styles.eventMonth}>{DateTime.fromISO(props.event.startDate).toFormat('LLL')}</div>
-                        <div className={styles.eventDay}>{DateTime.fromISO(props.event.startDate).toFormat('L')}</div>
+                    {props.event.isRecurrent ?
+                        <div className={styles.recurrentDate}>
+                            <div>{DateTime.fromISO(props.event.startDate).toFormat('LLL')} {DateTime.fromISO(props.event.startDate).toFormat('dd')}</div>    
+                            <div>{DateTime.fromISO(props.event.endDate).toFormat('LLL')} {DateTime.fromISO(props.event.endDate).toFormat('dd')}</div>                            
+                        </div>
+                        :
+                        <>
+                            <div className={styles.eventMonth}>{DateTime.fromISO(props.event.startDate).toFormat('MMM')}</div>
+                            <div className={styles.eventDay}>{DateTime.fromISO(props.event.startDate).toFormat('dd')}</div>
+                        </>
+                    }
                     </span>
                     <span className={styles.title}>{props.event.title}</span>
                 </h1>
@@ -22,12 +30,11 @@ export default function IEventDetails (props: IEventDetailsProps) {
 
             <section>
                 <h2>When</h2>
-                <div>
-                    {DateTime.fromISO(props.event.startDate).toFormat('DDDD')}
-                    <br/>
-                    {DateTime.fromISO(props.event.startDate).toFormat('t')} - {DateTime.fromISO(props.event.endDate).toFormat('t')}
-                    <br/>
-                    {DateTime.fromISO(props.event.startDate).toFormat('ZZZZZ')}
+                <div className={styles.eventTiming}>
+                    {/* {DateTime.fromISO(props.event.startDate).toFormat('DDDD')} */}
+                    <div>{props.event.recurrenceText}</div>
+                    <div>{DateTime.fromISO(props.event.startDate).toFormat('t')} - {DateTime.fromISO(props.event.endDate).toFormat('t')}</div>
+                    <div>{DateTime.fromISO(props.event.startDate).toFormat('ZZZZZ')}</div>
                 </div>
             </section>
 
