@@ -105,14 +105,16 @@ export const getEvents = async (context: WebPartContext, siteUrl: string, listNa
     const items : any  = await sp.web.lists.getByTitle(listName).items
         .orderBy('EventDate', true)
         .top(numEvents)
-        .select('Id, Title, Category, Created, Description, EventDate, EndDate, Location, Modified, fRecurrence, fAllDayEvent, RecurrenceData, OData__ModernAudienceTargetUserFieldId')
+        .select('Id, Title, Category, Created, Description, EventDate, EndDate, Location, Modified, fRecurrence, fAllDayEvent, RecurrenceData')
         .filter(`(EventDate ge '${today}' or (EventDate le '${today}' and EndDate ge '${today}')) ${getRangeFilter(dateRange)}`)();
+
+        //OData__ModernAudienceTargetUserFieldId
 
         return items.map(item => {
         return {
             id: item.Id,
             title: item.Title,
-            category: item.Category ? item.Category.join(', ') : '',
+            category: item.Category ? (Array.isArray(item.Category) ? item.Category.join(', ') : item.Category ) : '',
             created: item.Created,
             description: item.Description,
             startDate: item.EventDate,
@@ -120,7 +122,7 @@ export const getEvents = async (context: WebPartContext, siteUrl: string, listNa
             location: item.Location,
             modified: item.Modified,
             link: `${siteUrl}/Lists/${listName}/DispForm.aspx?ID=${item.Id}`,
-            targetAudienceId: item.OData__ModernAudienceTargetUserFieldId,
+            // targetAudienceId: item.OData__ModernAudienceTargetUserFieldId,
             isRecurrent: item.fRecurrence,
             recurrenceData: item.RecurrenceData,
             recurrenceObj: item.RecurrenceData ? parseRecurrentEvent(item.RecurrenceData, item.EventDate, item.EndDate): null,
